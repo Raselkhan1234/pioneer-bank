@@ -90,26 +90,9 @@
         const withdrawBtn=document.getElementById('withdraw-btn');
         withdrawBtn.addEventListener('click',function(){
             const withdraw=getInputNumber('withdraw-Amount');
-
-
-            updateSpanText('current-withdraw', withdraw)
-            document.getElementById('withdraw-Amount').value='';
-
-
-            function updateSpanText(id,withdraw){
-            const current=document.getElementById(id).innerText;
-            const currentNumber=parseFloat(current);
-            const totalAmount=withdraw+currentNumber;
-            document.getElementById(id).innerText=totalAmount;
-            }
-            
-
-            const currentBalance=document.getElementById('current-balance').innerText;
-            const currentBalanceNumber=parseFloat(currentBalance);
-            const totalBalance=currentBalanceNumber-withdraw;
-            document.getElementById('current-balance').innerText=totalBalance;
-        
-
+            updateSpanText('current-withdraw', withdraw);
+            updateSpanText('current-balance',-1*withdraw);
+            document.getElementById('withdraw-Amount').value ='';
         })
 
         function getInputNumber(id){
